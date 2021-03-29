@@ -44,6 +44,14 @@
     ]
   },
   "devDependencies": {
-    "@types/leaflet": "^1.7.0"
+    "@types/leaflet": "^1.7.0",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "2.2.1"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
   }
 }
