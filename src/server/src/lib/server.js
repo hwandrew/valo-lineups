@@ -1,5 +1,6 @@
 import express from "express";
 import { getRoutes } from "../routes";
+import { DatabaseProvider } from "../database/databaseProvider";
 
 /**
  * Starts an instance of the express server & mounts it to the '/api' endpoint
@@ -11,6 +12,8 @@ export function startServer({ port = process.env.PORT } = {}) {
 
   // mount entire app to the '/api' route
   app.use("/api", getRoutes());
+
+  DatabaseProvider.init();
 
   // generic error handler
   app.use(errorMiddleware);

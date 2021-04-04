@@ -1,4 +1,5 @@
 import express from "express";
+import { DatabaseProvider } from "../database/databaseProvider";
 
 /**
  * A function to get all map related routes
@@ -21,5 +22,7 @@ export function getMapRoutes() {
  */
 async function getAllMaps(req, res) {
   console.log("GET /api/maps");
+  var maps = DatabaseProvider.getAllMaps();
+  console.log(maps);
   res.send("GET /api/maps successful");
 }
