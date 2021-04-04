@@ -1,17 +1,17 @@
 class DatabaseProvider {
   static client;
 
-	static init() {
-		if (client == null) {
-			const MongoClient = require('mongodb').MongoClient;
-			const uri = "mongodb+srv://valolineups:EastSideBestSide@cluster0.h53gx.mongodb.net/ValoLineups?retryWrites=true&w=majority";
-			client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-		}
-	}
+  static init() {
+    if (client == null) {
+      const MongoClient = require('mongodb').MongoClient;
+      const uri = "mongodb+srv://valolineups:EastSideBestSide@cluster0.h53gx.mongodb.net/ValoLineups?retryWrites=true&w=majority";
+      client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    }
+  }
 
-	static async getAllMaps() {
-		if (client != null) {
-			try {
+  static async getAllMaps() {
+    if (client != null) {
+      try {
         // Connect the client to the server
         await client.connect(err => {
           if (err) {
@@ -31,5 +31,5 @@ class DatabaseProvider {
         await client.close();
       }
     }
-	}
+  }
 }
