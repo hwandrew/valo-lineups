@@ -1,13 +1,14 @@
 import express from "express";
 import { getRoutes } from "../routes";
 import { DatabaseProvider } from "../database/databaseProvider";
+let config = require('../config');
 
 /**
  * Starts an instance of the express server & mounts it to the '/api' endpoint
  * @param {*} port port for the server. @default process.env.PORT
  * @returns Promise which resolves with the express server
  */
-export function startServer({ port = process.env.PORT } = {}) {
+export function startServer({ port = config.port } = {}) {
   const app = express();
 
   // mount entire app to the '/api' route

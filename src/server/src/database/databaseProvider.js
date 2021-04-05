@@ -4,8 +4,8 @@ class DatabaseProvider {
   static init() {
     if (client == null) {
       const MongoClient = require('mongodb').MongoClient;
-      const uri = "mongodb+srv://valolineups:EastSideBestSide@cluster0.h53gx.mongodb.net/ValoLineups?retryWrites=true&w=majority";
-      client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+      const { mongoUri } = require('../config');
+      client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
     }
   }
 
@@ -27,7 +27,7 @@ class DatabaseProvider {
         return collection.find({}).toArray();
       } 
       finally {
-        // Ensures that the client will close when you finish/error
+        // Ensures that the client will close when we finish/error
         await client.close();
       }
     }
