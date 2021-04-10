@@ -31,11 +31,10 @@ All endpoints will begin with the `/api` prefix.
 
 ### Markers
 
-| Endpoint                   | Description                                                      | Required Params    | Optional Params         |
-| -------------------------- | ---------------------------------------------------------------- | ------------------ | ----------------------- |
-| `/markers`                 | Gets all markers corresponding to the `mapID` & `agentID` params | `mapID`, `agentID` | `abilityID`, `regionID` |
-| `/markers/{markerID}`      | Gets a single marker corresponding to the `markerID`             |                    |                         |
-| `/markers/{markerID}/info` | Gets the description & media information from the marker         |                    |                         |
+| Endpoint              | Description                                                                                                                                                           | Required Params    | Optional Params         |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- |
+| `/markers`            | Gets all markers corresponding to the `mapID` & `agentID` params. Only returns core marker data (`markerID`, start, end, `mapID`, `agentID`, `abilityID`, `regionID`) | `mapID`, `agentID` | `abilityID`, `regionID` |
+| `/markers/{markerID}` | Gets a single marker corresponding to the `markerID`. Gets the full marker info.                                                                                      |                    |                         |
 
 ---
 
