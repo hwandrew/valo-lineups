@@ -1,26 +1,17 @@
 import { AnyAction } from 'redux';
 
 // types & constants
-export interface ICountState {
-  count: number;
-}
-
 const INCREMENT: string = 'counter/increment';
 const DECREMENT: string = 'counter/decrement';
-const INITIAL_STATE: ICountState = {
-  count: 0,
-};
+const INITIAL_STATE: number = 0;
 
 // reducer
-const countReducer = (
-  state: ICountState = INITIAL_STATE,
-  action: AnyAction
-) => {
+const countReducer = (state: number = INITIAL_STATE, action: AnyAction) => {
   switch (action.type) {
     case INCREMENT:
-      return { ...state, count: state.count + 1 };
+      return state + 1;
     case DECREMENT:
-      return { ...state, count: state.count - 1 };
+      return state - 1;
     default:
       return state;
   }

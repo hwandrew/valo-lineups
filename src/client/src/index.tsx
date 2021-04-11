@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import { App } from 'app-base';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
-
-const store = createStore();
 
 ReactDOM.render(
   <React.StrictMode>
