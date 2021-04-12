@@ -1,8 +1,8 @@
 import { AnyAction } from 'redux';
 
 // types & constants
-const INCREMENT: string = 'counter/increment';
-const DECREMENT: string = 'counter/decrement';
+const INCREMENT: string = 'valo-lineups/counter/increment';
+const DECREMENT: string = 'valo-lineups/counter/decrement';
 const INITIAL_STATE: number = 0;
 
 // reducer
