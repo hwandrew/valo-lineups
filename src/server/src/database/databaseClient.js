@@ -13,6 +13,19 @@ export class DatabaseClient {
   }
 
   /**
+   * A function to connect to the remote MongoDB server
+   * @returns a promise for an array of the objects in the `maps` collection 
+   */
+  async #connect() {
+    // Connect the client to the server
+    await this.#client.connect();
+
+    // Establish and verify connection
+    await this.#client.db("ValoLineups").command({ ping: 1 });
+    console.log("Connected successfully to server");
+  }
+
+  /**
    * A function to get all objects stores in `maps` collection
    * @returns a promise for an array of the objects in the `maps` collection 
    */
@@ -22,12 +35,8 @@ export class DatabaseClient {
     }
     
     try {
-      // Connect the client to the server
-      await this.#client.connect();
-
-      // Establish and verify connection
-      await this.#client.db("ValoLineups").command({ ping: 1 });
-      console.log("Connected successfully to server");
+      // Connect to MongoDB
+      await this.#connect();
 
       // Query for collection
       const collection = this.#client.db("ValoLineups").collection("maps").find({});
