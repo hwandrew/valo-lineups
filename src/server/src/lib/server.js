@@ -1,6 +1,6 @@
 import express from "express";
 import { getRoutes } from "../routes";
-import { DatabaseProvider } from "../database/databaseProvider";
+import { DatabaseClient } from "../database/databaseClient";
 let config = require('../config');
 
 /**
@@ -13,8 +13,6 @@ export function startServer({ port = config.port } = {}) {
 
   // mount entire app to the '/api' route
   app.use("/api", getRoutes());
-
-  DatabaseProvider.init();
 
   // generic error handler
   app.use(errorMiddleware);

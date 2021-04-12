@@ -1,5 +1,5 @@
 import express from "express";
-import { DatabaseProvider } from "../database/databaseProvider";
+import { DatabaseClient } from "../database/databaseClient";
 
 /**
  * A function to get all map related routes
@@ -21,8 +21,16 @@ export function getMapRoutes() {
  * @param {*} res response
  */
 async function getAllMaps(req, res) {
+  // instantiate new database client
+  let db = new DatabaseClient();
   console.log("GET /api/maps");
-  var maps = DatabaseProvider.getAllMaps();
-  console.log(maps);
-  res.send("GET /api/maps successful");
+
+  // interface with client to query for maps
+  db.getAllMaps().then(function(result) {
+    res.status(200).json({
+      status: 200,
+      message: "success",
+      data: result
+    });
+  });
 }
