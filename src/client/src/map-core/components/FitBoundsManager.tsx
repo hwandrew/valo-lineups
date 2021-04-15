@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useMap } from 'react-leaflet';
 import { LatLngBounds } from 'leaflet';
 
-export default function FitBounder() {
+export default function FitBoundsManager() {
   const map = useMap();
 
   const fitBounds = React.useCallback(() => {

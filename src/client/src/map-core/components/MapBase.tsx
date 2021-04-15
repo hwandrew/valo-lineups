@@ -4,8 +4,8 @@ import { MapContainer, Marker, Popup, ImageOverlay } from 'react-leaflet';
 import { LatLng, LatLngBounds } from 'leaflet';
 import L from 'leaflet';
 import map from '../../assets/AscentMap.svg';
-import marker from '../../assets/Recon Dart Marker.svg';
-import FitBounder from './FitBounder';
+import marker from '../../assets/ReconDartMarker.svg';
+import FitBoundsManager from './FitBoundsManager';
 
 export default function MapBase() {
   const bounds = new LatLngBounds([0, 0], [1000, 1000]);
@@ -41,7 +41,7 @@ export default function MapBase() {
             <Popup>{center.toString()} Center</Popup>
           </Marker>
         </ImageOverlay>
-        <FitBounder />
+        <FitBoundsManager />
       </MapContainer>
     </div>
   );
